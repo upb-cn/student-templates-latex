@@ -1,0 +1,42 @@
+\documentclass[thesis]{../upb-cn}
+
+\addbibresource{refs.bib}
+
+% Basic information about your thesis
+\title{A Cool Networked System That Will Change the World}
+\author{Max Mustermann}
+\thesisdegree{Master of Sciences}
+\secondreviewer{Someone with a PhD}
+\supervisors{Supervisor name(s), separate with comma}
+\submissiondate{\today{}}
+
+\begin{document}
+
+% Please do not change the following parts
+\input{pretext/titlepage.tex}
+\input{pretext/copyright.tex}
+\input{pretext/legal.tex}
+
+% Please fill in the following parts 
+\input{text/acknowledgement.tex}
+\input{text/abstract.tex}
+
+% Table of contents, list of figures and tables
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Your thesis chapters start from here
+\input{text/introduction.tex}
+\input{text/background.tex}
+\input{text/design.tex}
+\input{text/evaluation.tex}
+\input{text/discussion.tex}
+\input{text/conclusion.tex}
+
+% This chapter should be moved in your thesis
+\input{text/template-usage.tex}
+
+\printbibliography
+
+\end{document}
