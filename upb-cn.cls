@@ -29,7 +29,7 @@
 \RequirePackage{transparent}
 
 % set fonts
-\RequirePackage{libertine}
+\RequirePackage[type1=true]{libertine}
 \renewcommand\ttdefault{cmtt}
 \renewcommand{\ttfamily}{\fontfamily{cmtt}\small\selectfont}
 \RequirePackage{libertinust1math}
@@ -91,22 +91,20 @@
     \fancypagestyle{firstpage}{%
         \renewcommand{\headrulewidth}{0pt}%
         \fancyheadoffset[L]{36pt}%
-        \fancyheadoffset[R]{36pt}%
+        \fancyheadoffset[R]{28pt}%
     }
     \thispagestyle{firstpage} 
 
     % left header
     \fancyhead[LE,LO]{%
         \ifthenelse{\value{page}=1}{%
-            \transparent{0.5}%
             \includegraphics[height=42pt]{../upb-logo}%
         }{\@lheader}
     }
     % right header
     \fancyhead[RE,RO]{%
         \ifthenelse{\value{page}=1}{%
-            \transparent{0.5}%
-            \includegraphics[height=30pt]{../upb-triangle}%
+            \includegraphics[height=36pt]{../upb-triangle}%
         }{\@rheader}
     }
     \fancyfoot[RE,RO]{{\sf\normalsize\thepage/\pageref{LastPage}}}
