@@ -135,11 +135,11 @@
 \titleformat{\chapter}[display]
 {\cleardoublepage\normalfont\Huge\bfseries\color{black}\scshape\thispagestyle{empty}} 
 {
-    \flushright
-    \begin{tikzpicture}
-        \draw[fill,color=UPBUltraBlue] (0,0) rectangle (2cm, 2cm);
-        \draw[color=white] (1cm,1cm) node {\thechapter};
-    \end{tikzpicture}
+    \flushright%
+    \begin{tikzpicture}%
+        \draw[fill,color=UPBUltraBlue] (0,0) rectangle (2cm, 2cm);% 
+        \draw[color=white] (1cm,1cm) node {\thechapter};% 
+    \end{tikzpicture}% 
 } 
 {0pt} 
 {\huge\flushright\color{UPBUltraBlue}} 
@@ -147,23 +147,23 @@
 
 % section styles
 \setcounter{secnumdepth}{3}
-\renewcommand{\section}{%
-    \@startsection{section}{1}{0pt}{1ex plus -1ex minus -.2ex}%
-    {1ex plus .2ex}{\sf\large\bfseries\headlinecolor}%
+\renewcommand{\section}{% 
+    \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}% 
+    {1ex plus .2ex}{\sf\large\bfseries\headlinecolor}% 
 }
 % do not use chapter numbering if not in a thesis
 \@ifclasswith{upb-cn}{thesis}{}{
     \renewcommand{\thesection}{\arabic{section}}
 }
 
-\renewcommand{\subsection}{%
-    \@startsection{subsection}{2}{0pt}{1ex plus -1ex minus -.2ex}%
-    {1ex plus .2ex}{\sf\normalsize\bfseries\color{black}}%
+\renewcommand{\subsection}{% 
+    \@startsection{subsection}{2}{0pt}{1ex plus 0ex minus 0ex}% 
+    {1ex plus .2ex}{\sf\normalsize\bfseries\color{black}}% 
 }
 
-\renewcommand{\subsubsection}{%
-    \@startsection{subsubsection}{3}{0pt}{1ex plus -1ex minus -.2ex}%
-    {1ex plus .2ex}{\sf\small\bfseries\color{black}}%
+\renewcommand{\subsubsection}{% 
+    \@startsection{subsubsection}{3}{0pt}{1ex plus 0ex minus 0ex}% 
+    {1ex plus .2ex}{\sf\small\bfseries\color{black}}% 
 }
 
 % list style
