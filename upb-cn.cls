@@ -106,7 +106,9 @@
 % Basic document format
 \linespread{1.1}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.5\baselineskip plus 2pt}
+\setlength{\baselineskip}{10pt}
+\setlength{\parskip}{0.5\baselineskip plus 2pt minus 2pt}
+\setlength{\bigskipamount}{\baselineskip}
 
 % Remove page style when clearing
 \def\cleardoublepage{
