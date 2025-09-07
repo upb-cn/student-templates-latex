@@ -99,8 +99,8 @@
 
 % Title style
 \renewcommand{\maketitle}{%
-    {\Large\sf\bfseries\headlinecolor\noindent\@title\medskip\\%
-    \color{black}\mdseries\normalsize\@author\bigskip}%
+    {\Large\sf\bfseries\headlinecolor\noindent\@title\bigskip\\%
+    \color{black}\mdseries\normalsize\rmfamily\@author\bigskip}%
 }
 
 % Basic document format
