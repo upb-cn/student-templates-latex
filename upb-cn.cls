@@ -17,8 +17,8 @@
 \RequirePackage[a4paper,
                 left=1in,
                 right=1in,   
-                top=1in,    
-                bottom=1in, 
+                top=1.3in,    
+                bottom=1.3in, 
                 heightrounded]{geometry}
 
 \RequirePackage[T1]{fontenc}
