@@ -11,7 +11,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
-\LoadClass[a4paper,twoside,11pt]{report}
+\LoadClass[a4paper,twoside]{report}
 
 % Page setup
 \RequirePackage[a4paper,
