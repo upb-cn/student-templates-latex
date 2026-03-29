@@ -103,9 +103,11 @@ The `pretext/` files (title page, copyright, legal declaration) are generated au
 
 ## Writing Tips
 
-The `template-tutorial.tex` file (included at the end of each document as a reference, to be removed before submission) provides guidance on:
+The `template-tutorial.tex` file (included in all templates) demonstrates the formatting conventions:
 
-- Citing references with `\cite` and managing the bibliography with `biblatex`.
-- Creating unnumbered and numbered lists (max two levels deep).
-- Typesetting inline code with `\verb` or `\lstinline` and code blocks with the `lstlisting` environment.
-- Formatting tables (no vertical bars, captions at the top) and figures (captions at the bottom).
+- **Citations:** use `\cite{key}` with entries managed by `biblatex`.
+- **Lists:** use `itemize` or `enumerate`; do not nest deeper than two levels.
+- **Inline code:** use `\verb+...+` or `\lstinline[language=...]|...|` for syntax highlighting.
+- **Code blocks:** use the `lstlisting` environment with a `language=` option (supports C, Python, C++, etc.).
+- **Tables:** use `booktabs` style (`\toprule`, `\midrule`, `\bottomrule`); avoid vertical bars; place captions *above* the table.
+- **Figures:** place captions *below* the figure.
