@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{upb-cn}[07.09.2025] 
+\ProvidesClass{upb-cn}[2026/03/29]
 
 \DeclareOption{thesis}{
     % For thesis
@@ -16,9 +16,9 @@
 % Page setup
 \RequirePackage[a4paper,
                 left=1in,
-                right=1in,   
-                top=1.3in,    
-                bottom=1.3in, 
+                right=1in,
+                top=1.3in,
+                bottom=1.3in,
                 heightrounded]{geometry}
 
 \RequirePackage[T1]{fontenc}
@@ -34,7 +34,6 @@
 \RequirePackage{titling}
 \RequirePackage{ccicons}
 \RequirePackage{transparent}
-
 
 % Use biblatex
 \RequirePackage[maxnames=999,minnames=999]{biblatex}
@@ -55,6 +54,7 @@
 \definecolor{blue}{HTML}{1864ab}
 \definecolor{orange}{HTML}{d9480f}
 \definecolor{yellow}{HTML}{e67700}
+\definecolor{codebg}{HTML}{f8f8f8}
 \newcommand{\headlinecolor}{\color{upb}}
 
 % Set hyperlink style
@@ -65,7 +65,7 @@
     linkcolor=black,
     filecolor=black,
     citecolor=black,
-    anchorcolor=upb, 
+    anchorcolor=upb,
     menucolor=black,
     runcolor=black,
     urlcolor=upb
@@ -79,6 +79,8 @@
 
 \DeclareRobustCommand*{\lheader}[1]{\gdef\@lheader{#1}}
 \DeclareRobustCommand*{\rheader}[1]{\gdef\@rheader{#1}}
+\gdef\@lheader{}
+\gdef\@rheader{}
 
 \@ifclasswith{upb-cn}{thesis}{
     \renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
@@ -87,9 +89,9 @@
     \fancyfoot[LE,RO]{{\normalsize\thepage}}
 }{
     \fancypagestyle{plain}{
-        \fancyhf{} 
-        \fancyfoot[R]{\normalsize\thepage/\pageref{LastPage}} 
-        \renewcommand{\headrulewidth}{0pt} 
+        \fancyhf{}
+        \fancyfoot[R]{\normalsize\thepage/\pageref{LastPage}}
+        \renewcommand{\headrulewidth}{0pt}
     }
     \thispagestyle{plain}
     \fancyhead[LE,LO]{\@lheader}
@@ -99,7 +101,7 @@
 
 % Title style
 \renewcommand{\maketitle}{%
-    {\Large\sf\bfseries\headlinecolor\noindent\@title\bigskip\\%
+    {\Large\sffamily\bfseries\headlinecolor\noindent\@title\bigskip\\%
     \color{black}\mdseries\normalsize\rmfamily\@author\bigskip}%
 }
 
@@ -122,37 +124,37 @@
 
 % Chapter style
 \titleformat{\chapter}[display]
-{\cleardoublepage\Huge\color{black}\scshape\thispagestyle{empty}} 
+{\cleardoublepage\Huge\color{black}\scshape\thispagestyle{empty}}
 {
     \flushright%
     \begin{tikzpicture}%
-        \draw[fill,color=upb] (0,0) rectangle (2cm, 2cm);% 
-        \draw[color=white] (1cm,1cm) node {\thechapter};% 
-    \end{tikzpicture}% 
-} 
-{0pt} 
-{\huge\flushright\color{upb}} 
+        \draw[fill,color=upb] (0,0) rectangle (2cm, 2cm);%
+        \draw[color=white] (1cm,1cm) node {\thechapter};%
+    \end{tikzpicture}%
+}
+{0pt}
+{\huge\flushright\color{upb}}
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}
 
 % Section styles
 \setcounter{secnumdepth}{3}
-\renewcommand{\section}{% 
-    \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}% 
-    {1ex plus .2ex}{\sf\large\bfseries}% 
+\renewcommand{\section}{%
+    \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}%
+    {1ex plus .2ex}{\sffamily\large\bfseries}%
 }
 % Do not use chapter numbering if not in a thesis
 \@ifclasswith{upb-cn}{thesis}{}{
     \renewcommand{\thesection}{\arabic{section}}
 }
 
-\renewcommand{\subsection}{% 
-    \@startsection{subsection}{2}{0pt}{1ex plus 0ex minus 0ex}% 
-    {1ex plus .2ex}{\sf\normalsize\bfseries}% 
+\renewcommand{\subsection}{%
+    \@startsection{subsection}{2}{0pt}{1ex plus 0ex minus 0ex}%
+    {1ex plus .2ex}{\sffamily\normalsize\bfseries}%
 }
 
-\renewcommand{\subsubsection}{% 
-    \@startsection{subsubsection}{3}{0pt}{1ex plus 0ex minus 0ex}% 
-    {1ex plus .2ex}{\sf\small\bfseries}% 
+\renewcommand{\subsubsection}{%
+    \@startsection{subsubsection}{3}{0pt}{1ex plus 0ex minus 0ex}%
+    {1ex plus .2ex}{\sffamily\small\bfseries}%
 }
 
 % List style
@@ -165,8 +167,8 @@
 % Colored box
 \RequirePackage{tcolorbox}
 \newtcolorbox{notebox}[1][]{
-  sharp corners, 
-  colback=gray!5!white, 
+  sharp corners,
+  colback=gray!5!white,
   boxrule=0.5pt,
   #1
 }
@@ -177,10 +179,6 @@
 % Listings setup for multiple languages
 \RequirePackage{listings}
 \RequirePackage{upquote}
-\RequirePackage{xcolor}
-
-% Define code colors
-\definecolor{codebg}{HTML}{f8f8f8} 
 
 % Global defaults applied to all listings
 \lstset{
