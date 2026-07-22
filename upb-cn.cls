@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{upb-cn}[2026/07/19 Document class for UPB-CN templates]
+\ProvidesClass{upb-cn}[2026/07/21 Document class for UPB-CN templates]
 
 % ---------------------------------------------------------------------------
 % Class options
@@ -7,8 +7,14 @@
 % Font: lmodern (default) or times; letters default to times
 \newif\ifupbcn@times
 \newif\ifupbcn@fontset
+\newif\ifupbcn@fontsizeprovided
 \DeclareOption{lmodern}{\upbcn@timesfalse\upbcn@fontsettrue}
 \DeclareOption{times}{\upbcn@timestrue\upbcn@fontsettrue}
+
+% Font size: default to 11pt unless explicitly set in \documentclass
+\DeclareOption{10pt}{\PassOptionsToClass{10pt}{report}\upbcn@fontsizeprovidedtrue}
+\DeclareOption{11pt}{\PassOptionsToClass{11pt}{report}\upbcn@fontsizeprovidedtrue}
+\DeclareOption{12pt}{\PassOptionsToClass{12pt}{report}\upbcn@fontsizeprovidedtrue}
 
 % Document mode: plain document (default), thesis, or letter
 \newif\ifupbcn@thesis
@@ -29,7 +35,12 @@
     \fi
 \fi
 
-\LoadClass[a4paper,twoside]{report}
+\ifupbcn@fontsizeprovided
+    \LoadClass[a4paper,twoside]{report}
+\else
+    \LoadClass[a4paper,twoside,11pt]{report}
+\fi
+\raggedbottom
 
 \ifupbcn@thesis
     % Creative Commons icons (\ccbyncndeu) for the thesis copyright page
@@ -177,9 +188,11 @@
     % Sender identity shown in the letterhead sender block; the remaining
     % lines (department, group, secretary's office, street address) are fixed
     \DeclareRobustCommand*{\sendername}[1]{\gdef\@sendername{#1}}
+    \DeclareRobustCommand*{\senderposition}[1]{\gdef\@senderposition{#1}}
     \DeclareRobustCommand*{\senderphone}[1]{\gdef\@senderphone{#1}}
     \DeclareRobustCommand*{\senderemail}[1]{\gdef\@senderemail{#1}}
     \gdef\@sendername{}
+    \gdef\@senderposition{}
     \gdef\@senderphone{}
     \gdef\@senderemail{}
 
@@ -195,9 +208,11 @@
         \end{minipage}%
         \begin{minipage}[t]{0.33\textwidth}
             \raggedright\footnotesize
-            Department of Computer Science \\
+            Faculty of Computer Science, Electrical Engineering, and Mathematics \\
+            Department of Computer Science \\[5pt]
+            
             \@sendername \\
-            Computer Networks Group \\
+            \@senderposition \\
             T \@senderphone \\
             \@senderemail \\[5pt]
 
@@ -226,7 +241,14 @@
 % thesis title and copyright pages; load it before \maketitle is redefined
 \RequirePackage{titling}
 \renewcommand{\maketitle}{%
-    {\Large\sffamily\bfseries\headlinecolor\noindent\@title\bigskip\\%
+    {%
+    \sffamily\bfseries\headlinecolor\noindent
+    \begingroup
+        \LARGE
+        \setlength{\baselineskip}{\baselineskip}%
+        \parbox[t]{\textwidth}{\raggedright\@title}%
+    \endgroup
+    \par\bigskip
     \color{black}\mdseries\normalsize\rmfamily\@author\bigskip}%
 }
 
@@ -272,7 +294,7 @@
 \setcounter{secnumdepth}{3}
 \renewcommand{\section}{%
     \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}%
-    {1ex plus .2ex}{\sffamily\large\bfseries}%
+    {1ex plus .2ex}{\sffamily\Large\bfseries}%
 }
 % Sections are numbered without a chapter prefix outside a thesis
 \ifupbcn@thesis\else
