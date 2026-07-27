@@ -64,7 +64,8 @@
 
 \RequirePackage[T1]{fontenc}
 \ifupbcn@times
-    \RequirePackage{times}
+    \RequirePackage{newtxtext}
+    \RequirePackage{newtxmath}
 \else
     \RequirePackage{lmodern}
 \fi
