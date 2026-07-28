@@ -56,7 +56,7 @@
 % text block. The running head sits inside the top margin, above that 2.5 cm.
 \RequirePackage[a4paper,
 left=2.5cm, right=2.5cm,
-  top=3cm, bottom=3cm]{geometry}
+top=2.5cm, bottom=3cm]{geometry}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}
