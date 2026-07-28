@@ -4,7 +4,10 @@
 		
         \includegraphics[height=24mm]{../upb-logo.pdf}\\[40pt]
 
-		{\LARGE\sf\bfseries\thetitle{}}\\[50pt]
+		% \parbox so a title spanning several lines is broken while \LARGE is
+		% still in effect and picks up its leading, as \maketitle does
+		{\LARGE\sffamily\bfseries
+			\parbox[t]{\textwidth}{\centering\thetitle{}}}\\[50pt]
 
 		by
 

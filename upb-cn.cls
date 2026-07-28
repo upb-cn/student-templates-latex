@@ -282,7 +282,7 @@
 }
 
 \titleformat{\chapter}[display]
-{\cleardoublepage\Huge\color{black}\scshape\thispagestyle{empty}}
+{\cleardoublepage\Huge\color{black}\sffamily\bfseries\thispagestyle{empty}}
 {
     \flushright%
     \begin{tikzpicture}%
