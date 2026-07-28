@@ -63,6 +63,8 @@
                 heightrounded]{geometry}
 
 \RequirePackage[T1]{fontenc}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \ifupbcn@times
     \RequirePackage{newtxtext}
     \RequirePackage{newtxmath}
@@ -245,7 +247,7 @@
     {%
     \sffamily\bfseries\headlinecolor\noindent
     \begingroup
-        \LARGE
+        \Large
         \setlength{\baselineskip}{\baselineskip}%
         \parbox[t]{\textwidth}{\raggedright\@title}%
     \endgroup
@@ -295,7 +297,7 @@
 \setcounter{secnumdepth}{3}
 \renewcommand{\section}{%
     \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}%
-    {1ex plus .2ex}{\sffamily\Large\bfseries}%
+    {1ex plus .2ex}{\sffamily\large\bfseries}%
 }
 % Sections are numbered without a chapter prefix outside a thesis
 \ifupbcn@thesis\else
@@ -324,7 +326,6 @@
 \setlist[enumerate,2]{nosep,label=\alph*.,left=1em}
 
 % Checkboxes and marks
-\RequirePackage{amssymb}
 \RequirePackage{pifont}
 \newcommand{\cmark}{\ding{51}}
 \newcommand{\xmark}{\ding{55}}
