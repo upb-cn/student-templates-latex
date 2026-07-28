@@ -55,10 +55,8 @@
 % Standard A4 setup: 2.5 cm of white space on all four sides, measured to the
 % text block. The running head sits inside the top margin, above that 2.5 cm.
 \RequirePackage[a4paper,
-                left=2.5cm,
-                right=2.5cm,
-                top=2.5cm,
-                bottom=3cm]{geometry}
+left=2.5cm, right=2.5cm,
+  top=3cm, bottom=3cm]{geometry}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}
@@ -232,6 +230,13 @@
             \flushleft
         \end{minipage}
         \vspace{1cm}
+    }
+
+    % Subject line, set in the same font as \subsection; unstarred so the
+    % argument may be broken over two lines with \\
+    \DeclareRobustCommand{\subject}[1]{%
+        {\sffamily\normalsize\bfseries #1\par}%
+        \vspace{0.8cm}%
     }
 \fi
 
