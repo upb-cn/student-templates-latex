@@ -1,15 +1,15 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{upb-cn}[2026/07/21 Document class for UPB-CN templates]
+\ProvidesClass{upb-cn}[2026/07/28 Document class for UPB-CN templates]
 
 % ---------------------------------------------------------------------------
 % Class options
 % ---------------------------------------------------------------------------
-% Font: lmodern (default) or times; letters default to times
+% Font: times (default) or lmodern
 \newif\ifupbcn@times
-\newif\ifupbcn@fontset
 \newif\ifupbcn@fontsizeprovided
-\DeclareOption{lmodern}{\upbcn@timesfalse\upbcn@fontsettrue}
-\DeclareOption{times}{\upbcn@timestrue\upbcn@fontsettrue}
+\upbcn@timestrue
+\DeclareOption{lmodern}{\upbcn@timesfalse}
+\DeclareOption{times}{\upbcn@timestrue}
 
 % Font size: default to 11pt unless explicitly set in \documentclass
 \DeclareOption{10pt}{\PassOptionsToClass{10pt}{report}\upbcn@fontsizeprovidedtrue}
@@ -29,9 +29,6 @@
     \ifupbcn@thesis
         \ClassError{upb-cn}{The 'letter' and 'thesis' options cannot be combined}%
             {Remove one of these class options.}
-    \fi
-    \ifupbcn@fontset\else
-        \upbcn@timestrue
     \fi
 \fi
 
@@ -55,12 +52,13 @@
 % ---------------------------------------------------------------------------
 % Page geometry and fonts
 % ---------------------------------------------------------------------------
+% Standard A4 setup: 2.5 cm of white space on all four sides, measured to the
+% text block. The running head sits inside the top margin, above that 2.5 cm.
 \RequirePackage[a4paper,
-                left=1in,
-                right=1in,
-                top=1.3in,
-                bottom=1.3in,
-                heightrounded]{geometry}
+                left=2.5cm,
+                right=2.5cm,
+                top=2.5cm,
+                bottom=3cm]{geometry}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}
@@ -247,7 +245,7 @@
     {%
     \sffamily\bfseries\headlinecolor\noindent
     \begingroup
-        \Large
+        \LARGE
         \setlength{\baselineskip}{\baselineskip}%
         \parbox[t]{\textwidth}{\raggedright\@title}%
     \endgroup
@@ -297,7 +295,7 @@
 \setcounter{secnumdepth}{3}
 \renewcommand{\section}{%
     \@startsection{section}{1}{0pt}{1ex plus 0ex minus 0ex}%
-    {1ex plus .2ex}{\sffamily\large\bfseries}%
+    {1ex plus .2ex}{\sffamily\Large\bfseries}%
 }
 % Sections are numbered without a chapter prefix outside a thesis
 \ifupbcn@thesis\else
