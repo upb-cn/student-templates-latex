@@ -52,11 +52,10 @@
 % ---------------------------------------------------------------------------
 % Page geometry and fonts
 % ---------------------------------------------------------------------------
-% Standard A4 setup: 2.5 cm of white space on all four sides, measured to the
-% text block. The running head sits inside the top margin, above that 2.5 cm.
+
 \RequirePackage[a4paper,
 left=2.5cm, right=2.5cm,
-top=2.5cm, bottom=3cm]{geometry}
+top=2.5cm, bottom=2.5cm, includeheadfoot]{geometry}
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{amsmath}
