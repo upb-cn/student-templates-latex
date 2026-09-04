@@ -1,0 +1,107 @@
+\documentclass[report]{../upb-cn}
+
+\usepackage{pgfgantt}
+
+\lheader{Seminar: XXX (SS24)}  % XXX is the name of the seminar
+\rheader{Your Name}
+
+\addbibresource{refs.bib}
+
+\title{Seminar: XXX (SS24)}
+\author{Your Name (Matriculation Number)}
+
+\begin{document}
+\maketitle
+
+\begin{notebox}
+    \begin{tabular}{@{}ll}
+        \textbf{Research group:} & Computer Networks (CN) \\
+        \textbf{Study program:} & BSc/MSc Computer Science / Computer Engineering \\
+        \textbf{Supervisor:} & Prof. Dr. Lin Wang \\
+        \textbf{Paper title:} & Title of the selected paper
+    \end{tabular}
+\end{notebox}
+
+% remove the following part in your report
+The following structure should be followed in general. You may deviate from this structure slightly if you have a good reason to do so. Skipping any parts contained in the structure without proper justification will result in penalties. If you are unsure about your choice, please contact your supervisor.
+
+\section*{Abstract}
+
+% remove the following part in your report
+An abstract is a compressed summary of the paper. It should make clear at least the following points:
+\begin{enumerate}
+    \item What is the context of the problem and why the problem is important?
+    \item What are the new insights/observations that motivate the paper?
+    \item What are the major contributions of the paper?
+\end{enumerate}
+
+You should explain each of the above points with just 1--2 sentences.
+
+
+
+\section{Introduction}
+\label{sec:introduction}
+
+% remove the following part in your report
+The introduction section serves as an unzipped summary of the paper. It is similar to the abstract but with more details. An example storyline for the introduction could look like the following:
+
+\begin{enumerate}
+    \item Background, general context of the problem
+    \item Problem description and its importance
+    \item Existing works and why they fall short
+    \item New insights/observations that motivate a new design
+    \item Key features of the new design
+    \item Summary of contributions
+\end{enumerate}
+
+This storyline just serves as a typical example. You can also find your own way to organize this section. 
+
+
+
+\section{Background}
+\label{sec:background}
+
+% remove the following part in your report
+This section introduces the necessary background for others to understand the context and problem. You can have multiple subsections, each focusing on one major concept. For example, if the paper is about an in-network key-value cache, you may need to explain first what is a \emph{key-value store and the associated caching problem}, and then what is \emph{in-network computing}. After reading these two background descriptions, readers would have a good idea about the context of in-network key-value caching.
+
+
+\section{Problem Statement and Taxonomy}
+\label{sec:problem}
+
+% remove the following part in your report
+This section is tailored for a literature study report. Since you have read multiple papers, hopefully on closely related topics. Now you should think about what is a good overarching problem to write about, covering all the papers you want to include. But of course, these papers may have different focuses, even though they all fit the overarching problem.
+
+You must identify the overarching problem and make a clear statement about it so it is crystal clear to the reader. Then, categorize the papers and create a (simple) taxonomy to guide the readers further. For example, if you want to include papers about the hardware architecture of programmable switches in a report, you could create a taxonomy based on the hardware type: FPGA-based, ASIC-based, and NPU-based. You can even divide each of these directions into sub-directions. For example, for ASIC-based architecture, there are pipeline-based and multi-core-based.  
+
+\section{Summary of Surveyed Papers}
+\label{sec:papers}
+
+% remove the following part in your report
+This section provides summaries of the papers according to the taxonomy you have just presented. You are free to choose how to organize this section, but it should somehow reflect the taxonomy. Note that you should not copy anything directly from the paper. You must identify the key elements (like the ones listed in the storyline of the introduction) of each of the papers and summarize the paper in your own words. You might want to go a bit deeper here regarding the core technical ideas, but you can be very brief on aspects that are not essentially related to the core ideas.
+
+\section{Qualitative Analysis and Comparison}
+\label{sec:analysis}
+
+% remove the following part in your report
+This section is to perform a qualitative analysis of the papers you have presented. Try to synthesize some metrics on which you can compare the solutions presented in this paper. These metrics could include system requirements (e.g., scalability, reliability, extensibility, programmability), and performance metrics (e.g., latency, throughput). Please carefully select metrics to include according to the context of the studied problem. A table would be helpful for such a qualitative analysis and comparison, where each column includes a metric while each row corresponds to a solution.
+
+\section{Comments on the Papers}
+\label{sec:comments}
+
+% remove the following part in your report
+Here you can make some general comments about the research field, the studied problem, as well as the papers included in this report. You could comment on the importance of the problem, the significance of the presented solutions, and maybe also your opinion about the development of the research field in general. After all, no paper is perfect and no one can predict the future. 
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+% remove the following part in your report
+Finally, draw some conclusions as to whether the presented papers have already solved the stated problem. Try first to draw conclusions about the current landscape and then outline some future directions that could be interesting to explore. 
+
+\printbibliography
+
+\newpage
+
+% remove this tutorial part in your report
+\input{../template-tutorial.tex}
+
+\end{document}

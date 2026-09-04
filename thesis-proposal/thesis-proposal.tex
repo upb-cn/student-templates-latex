@@ -1,0 +1,98 @@
+\documentclass[report]{../upb-cn}
+
+\usepackage{pgfgantt}
+
+\lheader{BSc/MSc Thesis}
+\rheader{Your Name}
+
+\addbibresource{refs.bib}
+
+\title{Thesis Proposal: Tentative Title of Your Thesis}
+\author{Your Name (Matriculation Number)}
+
+\begin{document}
+\maketitle
+
+\begin{notebox}
+    \begin{tabular}{@{}ll}
+        \textbf{Research group:} & Computer Networks (CN) \\
+        \textbf{Study program:} & BSc/MSc Computer Science / Computer Engineering \\
+        \textbf{First reviewer:} & Prof. Dr. Lin Wang \\
+        \textbf{Second reviewer:} & Someone at the department with a PhD \\
+        \textbf{Daily supervisor(s):} & Person who talk to you on a daily/weekly basis
+    \end{tabular}
+\end{notebox}
+
+\section{Introduction}
+\label{sec:introduction}
+
+Provide the background for your thesis project and motivate your proposed work. At the end of this section, provide a short summary of your expected contributions. You can consider the following questions when writing:
+
+\begin{itemize}
+    \item What problem are you going to work on?
+    \item Why is it an important problem?
+    \item Why does the problem have not been solved already?
+    \item What new insights and ideas do you have?
+    \item What is the overarching research question of your thesis work?
+    \item What contributions do you expect to make? 
+\end{itemize}
+
+\section{Research Objectives}
+\label{sec:objectives}
+
+Provide more details about the overarching research question, set up a high-level goal, and divide the goal into multiple concrete objectives. Provide details for each of these objectives. Try to limit the number of objectives in the range of two to four. 
+
+\section{Related Work}
+\label{sec:relatedwork}
+
+Describe what has been done by others. What are the important references? Among these which ones are your direct competitors and which ones form the base of your own work? Explain in detail. For the direct competitors explain clearly what is still lacking from them to address your research question. 
+
+\section{Proposed Work}
+\label{sec:proposedwork}
+
+Describe the proposed work you will perform during your thesis. To achieve each of the objectives listed in Section~\ref{sec:objectives}, what general approaches will you take? What techniques will be used? What innovative ideas will you explore? How are you going to evaluate your proposed ideas? It would be even better if you could already include some preliminary investigation results (e.g., a simplified case study, some measurement results) to support your arguments. That would significantly increase the credibility of your proposal.
+
+\section{Timeline}
+\label{sec:timeline}
+
+The following Gantt chart is required. Change the titles with ``Month'' with your actual month information. In the chart, we have already listed the most important entries for a typical systems-oriented thesis, but you can add or remove entries if necessary. Adjust the duration of each entry according to your thesis project. You may also provide a more detailed list of milestones to achieve along the project execution.
+
+\begin{figure}[!h]
+\begin{ganttchart}[
+    vgrid={*{3}{gray, dotted}, *1{black, dashed}},
+    bar label node/.append style={
+        align=right,
+        text width=0.15\textwidth}
+    ]{1}{24}
+    \gantttitle{Month 1}{4} \gantttitle{Month 2}{4}  \gantttitle{Month 3}{4} \gantttitle{Month 4}{4} \gantttitle{Month 5}{4} \gantttitle{Month 6}{4}\\
+    \ganttbar{Literature \\ study}{1}{3} \\
+    \ganttbar{Design}{4}{10} \\
+    \ganttbar{Implementation}{8}{15} \\
+    \ganttbar{Evaluation}{12}{18} \\
+    \ganttbar{Writing \& \\ presentation}{17}{20}
+\end{ganttchart}
+\end{figure}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{@{}rl@{}}
+        \toprule
+        \multicolumn{2}{@{}l}{\textbf{Milestones}} \\
+        \midrule
+        Date A & Finish the literature study and generate a comparative table \\
+        Date B & Complete the sketch of the system design \\
+        Date C & Start implementation of the system \\
+        Date D & Complete the system setup and start evaluation \\
+        ... & ... \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\printbibliography
+
+\newpage
+
+% remove this tutorial part in your report
+\input{../template-tutorial.tex}
+
+\end{document}

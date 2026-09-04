@@ -1,0 +1,41 @@
+\section{How to Use This Template for Writing}
+
+% \subsection{Subsection Heading}
+% \subsubsection{Subsubsection Heading (Avoid Using It If Possible)}
+
+By default, paragraphs are not indented. To cite a reference, you can use the \verb+\cite+ command. Here is an example: HIRE is a novel resource scheduler for in-network computing~\cite{2021:asplos:hire}. The list of references is shown at the end of the document in the ``References'' section. We use \verb+biblatex+ to manage references and the source of bib items is specified at the beginning with the command \verb+\addbibresource{...}+. It is recommended that you collect the bib entries from DBLP\footnote{DBLP: https://dblp.org}.
+
+You can also create unnumbered (and numbered) lists as in the following examples. Note that the list should not go deeper than two levels; otherwise, it becomes ugly. 
+
+\begin{itemize}
+    \item First item
+    \item Second item 
+        \begin{itemize}
+            \item First subitem
+            \item Second subitem
+        \end{itemize}
+\end{itemize}
+
+If you have some text you want to put in monospace (e.g., cite something in verbatim), you can use the \verb+\verb+ command to do that. Alternatively, you can use \verb+\lstinline[language=...]|...|+ with syntax highlights if you specify the language (e.g., Python, C, or C++). If you want to write a code block, you can use the \verb+lstlisting+ environment with syntax highlights. Here is an example for a C code snippet.
+
+\begin{lstlisting}[language=C]
+// Simple C example
+int main(int argc, char** argv) {
+    return 0;
+}
+\end{lstlisting}
+
+Figures and tables should generally be put at the top of the page if not on the title page. Table~\ref{tab:info} is an example for the table format. Avoid using vertical bars in a table unless it is really necessary. All cells should be left-aligned except cells with numbers which should be right-aligned or dot-aligned. The caption for the table should sit at the top of the table, while it is at the bottom for figures.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Course Grade}\label{tab:info}
+    \begin{tabular}{@{}lrr@{}}
+        \toprule
+        \textbf{Name} & \textbf{Matriculation Number} & \textbf{Grade} \\
+        \midrule
+        Max Mustermann & 112233 & 1.3 \\
+        Paul M\"uller & 445566 & 1.7 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
