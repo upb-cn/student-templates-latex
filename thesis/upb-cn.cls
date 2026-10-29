@@ -1,14 +1,14 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{upb-cn}[2026/10/21 v1.0.0 Document class for UPB-CN templates]
+\ProvidesClass{upb-cn}[2026/10/29 v1.0.0 Document class for UPB-CN templates]
 
 % ---------------------------------------------------------------------------
 % Class options
 % ---------------------------------------------------------------------------
-% Font: source (default), times, or lmodern
+% Font: times (default), source, or lmodern
 \newif\ifupbcn@source
 \newif\ifupbcn@times
 \newif\ifupbcn@fontsizeprovided
-\upbcn@sourcetrue
+\upbcn@timestrue
 \DeclareOption{source}{\upbcn@sourcetrue\upbcn@timesfalse}
 \DeclareOption{times}{\upbcn@sourcefalse\upbcn@timestrue}
 \DeclareOption{lmodern}{\upbcn@sourcefalse\upbcn@timesfalse}
