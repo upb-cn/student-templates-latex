@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{upb-cn}[2026/10/29 v1.0.0 Document class for UPB-CN templates]
+\ProvidesClass{upb-cn}[2026/11/07 v1.1.0 Document class for UPB-CN templates]
 
 % ---------------------------------------------------------------------------
 % Class options
@@ -344,7 +344,7 @@
 
 % \makecoverpage is used instead of \maketitle; it sets an unnumbered cover
 % page with the title block in the middle, the author block at the bottom,
-% and a grid motif built from the group logo in the upper right corner. The
+% and a fading grid of squares in the upper right corner. The
 % cover is numbered A internally so its hyperref anchor does not clash with
 % the following page, where the arabic numbering (and the page total) starts
 % at 1
@@ -354,29 +354,24 @@
     \thispagestyle{empty}%
     \noindent
     \begin{tikzpicture}[overlay,remember picture]
-        % The logo's squares have side 0.618 on a pitch of 1 (its own
-        % proportions, here in cm). The grid is counted in columns (\c) and
-        % rows (\r) from the top right corner of the page and fades out with
-        % distance from it; the logo itself (a merged 2x2 square plus an L of
-        % five squares) fills the 3x3 block at columns and rows 4--6
+        % Squares of side 0.618 on a pitch of 1 (the proportions of the group
+        % logo, here in cm), counted in columns (\c) and rows (\r) from the
+        % top right corner of the page; they fade out with distance from it
         \begin{scope}[shift={(current page.north east)}]
             \foreach \c in {0,...,10} {
                 \foreach \r in {0,...,9} {
                     \pgfmathsetmacro{\op}{max(0, 1 - sqrt((\c+0.3)^2 + (\r+0.3)^2)/9.5)}
-                    \pgfmathtruncatemacro{\inlogo}{(\c>=4)*(\c<=6)*(\r>=4)*(\r<=6)}
-                    \ifnum\inlogo=0 \ifdim\op pt>0.02pt
+                    \ifdim\op pt>0.02pt
                         \fill[black!20, fill opacity=\op]
                             ({0.2-\c-0.618}, {0.2-\r-0.618}) rectangle ++(0.618, 0.618);
-                    \fi\fi
+                    \fi
                 }
             }
-            \fill[black] (-6.418, -5.418) rectangle ++(1.618, 1.618);
-            \foreach \c/\r in {4/4, 4/5, 4/6, 5/6, 6/6}
-                \fill[black] ({0.2-\c-0.618}, {0.2-\r-0.618}) rectangle ++(0.618, 0.618);
         \end{scope}
-        % Title block
+        % Title block, starting below the grid; it grows downwards, so long
+        % titles and details keep a clear gap to the author block
         \node[anchor=north west, inner sep=0pt, text width=16cm, align=left]
-            at ([xshift=2.5cm, yshift=-12.5cm]current page.north west) {%
+            at ([xshift=2.5cm, yshift=-11.5cm]current page.north west) {%
             % align=left fixes the interword space to that of the font outside
             % the node; reset it so each line uses its own font's spacing.
             % Lines are set fully ragged right, so the interword spaces do
@@ -387,9 +382,11 @@
                 {\sffamily\large\@supertitle\par}%
                 \vspace{12pt}%
             \fi
-            {\sffamily\bfseries\fontsize{46}{50}\selectfont\@title\par}%
+            {\sffamily\bfseries\fontsize{42}{48}\selectfont\@title\par}%
             \vspace{16pt}%
-            {\rule{2.2cm}{2.5pt}\par}%
+            % The rule is the cover's only accent in UPB blue, as is the
+            % inline title of \maketitle
+            {\color{upb}\rule{2.2cm}{2.5pt}\par}%
             \ifx\@subtitle\@empty\else
                 \vspace{14pt}%
                 {\sffamily\Large\@subtitle\par}%
